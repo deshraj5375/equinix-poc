@@ -19,7 +19,7 @@ stage('terraform-plan')
 						sh 'terraform init -input=false'
 						sh 'terraform validate'
 						sh 'terraform plan -out=tfplan.tf -input=false'	
-                        sh 'terraform apply tfplan.tf -auto-approve'					
+                        sh 'terraform apply tfplan.tf'					
     }
 }
 
