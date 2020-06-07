@@ -1,0 +1,30 @@
+#! /usr/bin/groovy
+
+node('master')
+{
+
+def tftool = tool name: 'terraform'
+env.PATH = "${tftool}:${env.PATH}"
+
+stage('checkout phase')
+{
+    sh 'rm -rf *'
+  checkout scm
+}
+stage('terraform-plan')
+{
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'DeshrajAdmin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+    {
+        dir("${WORKSPACE}/ALB-instance/TIB-ALB-A")
+        {
+                   ansiColor('xterm') {
+                       sh 'terraform init -input=false'                      
+                       sh 'terraform destroy -auto-approve'
+                   }	
+                        
+
+        }
+    }
+
+}
+}
