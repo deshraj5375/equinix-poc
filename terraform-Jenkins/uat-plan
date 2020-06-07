@@ -13,21 +13,20 @@ stage('checkout phase')
 }
 stage('terraform-plan')
 {
-    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'DeshrajAdmin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-    dir("${WORKSPACE}/ALB-instance/TIB-ALB-A")
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'DeshrajAdmin', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
     {
+        dir("${WORKSPACE}/ALB-instance/TIB-ALB-A")
+        {
                         
-                        sh 'terraform destroy -auto-approve'	*/
+                        sh 'terraform destroy -auto-approve'	
                         /*sh 'terraform fmt'
 						sh 'terraform init -input=false'
 						sh 'terraform validate'
 						sh 'terraform plan -out=tfplan.tf -input=false'	
                         sh 'terraform apply tfplan.tf'	*/
 
+        }
     }
-}
 
 }
-
-
 }
