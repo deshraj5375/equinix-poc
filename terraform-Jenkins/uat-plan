@@ -1,0 +1,22 @@
+#! /usr/bin/groovy
+
+node()
+{
+
+stage('checkout phase')
+{
+
+}
+stage('terraform-plan')
+{
+
+
+}
+
+stage('terraform-apply')
+{
+
+    
+}
+
+}

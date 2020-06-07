@@ -1,0 +1,2 @@
+variable "albsgGroupName" {}
+variable "vpc" {}
