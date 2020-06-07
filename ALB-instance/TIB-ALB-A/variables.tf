@@ -32,7 +32,7 @@ variable "instanceType" {
 	default     = "t2.micro"
 }
 variable "ebsSize" {
-	default     = "01"
+	default     = "08"
 }
 variable "keyname" {
 	default     = "awsJenkins"
