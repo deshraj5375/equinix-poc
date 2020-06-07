@@ -8,6 +8,7 @@ env.PATH = "${tftool}:${env.PATH}"
 
 stage('checkout phase')
 {
+    sh 'rm -rf *'
   checkout scm
 }
 stage('terraform-plan')
