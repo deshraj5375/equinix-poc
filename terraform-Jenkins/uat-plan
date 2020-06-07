@@ -17,13 +17,11 @@ stage('terraform-plan')
     {
         dir("${WORKSPACE}/ALB-instance/TIB-ALB-A")
         {
-                        
-                        sh 'terraform destroy -auto-approve'	
-                        /*sh 'terraform fmt'
+                        sh 'terraform fmt'
 						sh 'terraform init -input=false'
 						sh 'terraform validate'
 						sh 'terraform plan -out=tfplan.tf -input=false'	
-                        sh 'terraform apply tfplan.tf'	*/
+                        
 
         }
     }
