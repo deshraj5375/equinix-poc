@@ -17,12 +17,12 @@ stage('terraform-plan')
     {
         dir("${WORKSPACE}/ALB-instance/TIB-ALB-A")
         {
-                   ansiColor('xterm') {
+                   
                        sh 'terraform init -input=false'
                        sh 'terraform validate'
                        sh 'terraform plan -out=tfplan -input=false'
                        sh 'terraform apply -input=false -auto-approve tfplan'
-                   }	
+                   	
                         
 
         }
