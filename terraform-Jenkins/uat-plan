@@ -1,9 +1,10 @@
 #! /usr/bin/groovy
 
-node()
+node('master')
 {
 
 def tftool = tool name: 'terraform'
+env.PATH = "${tftool}:${env.PATH}"
 
 stage('checkout phase')
 {
